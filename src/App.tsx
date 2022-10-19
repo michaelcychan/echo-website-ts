@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import { shoutToEcho } from './components/shoutToEcho';
 
 const App = () => {
 
@@ -10,14 +11,8 @@ const App = () => {
     
     const text: string = event.target.value
     setShout(text)
-    const textArray: string[] = text.trim().split(' ')
-    if (textArray.length > 2) {
-      textArray[textArray.length - 1] += '...' 
-      for (let i = 0; i < 2; ++i){
-        textArray.push(textArray[textArray.length - 1])
-      }
-    }
-    setEcho(textArray.join(' '))
+    const echoText: string = shoutToEcho(text)
+    setEcho(echoText)
   }
 
   return (
@@ -28,7 +23,7 @@ const App = () => {
         </h1>
       </header>
       <section>
-        <h2>Say Something:</h2>
+        <h2>Shout Something:</h2>
         <input
           type="text"
           id="shout"
