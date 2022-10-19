@@ -11,7 +11,7 @@ describe('opening the webpage', () => {
   })
 
   test('returns the same one word', () => {
-    const page = render(<App />);
+    render(<App />);
     const input = document.getElementById('shout')!
     fireEvent.change(input, {target: {value: 'this'}})
     const echo = document.getElementsByClassName('echo')[0].innerHTML
@@ -19,7 +19,7 @@ describe('opening the webpage', () => {
   })
 
   test('returns a modified text', () => {
-    const page = render(<App />);
+    render(<App />);
     const input = document.getElementById('shout')!
     fireEvent.change(input, {target: {value: 'This is an echo cave'}})
     const echo = document.getElementsByClassName('echo')[0].innerHTML
