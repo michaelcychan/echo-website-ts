@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import './App.css';
 import { shoutToEcho } from './components/shoutToEcho';
 
@@ -7,8 +7,7 @@ const App = () => {
   const [echo, setEcho] = useState('')
   const [shout, setShout] = useState('')
 
-  const changeText = (event: any) => {
-    
+  const changeText = (event: ChangeEvent<HTMLInputElement>) => {
     const text: string = event.target.value
     setShout(text)
     const echoText: string = shoutToEcho(text)
