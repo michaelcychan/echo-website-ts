@@ -12,7 +12,8 @@ describe('opening the webpage', () => {
 
   test('returns the same one word', () => {
     render(<App />);
-    const input = document.getElementById('shout')!
+    const input = document.getElementById('shout')
+    if (input === null) throw new Error('"Shout" element absent!')
     fireEvent.change(input, {target: {value: 'this'}})
     const echo = document.getElementsByClassName('echo')[0].innerHTML
     expect(echo).toBe('this')
@@ -20,7 +21,8 @@ describe('opening the webpage', () => {
 
   test('returns a modified text', () => {
     render(<App />);
-    const input = document.getElementById('shout')!
+    const input = document.getElementById('shout')
+    if (input === null) throw new Error('"Shout" element absent!')
     fireEvent.change(input, {target: {value: 'This is an echo cave'}})
     const echo = document.getElementsByClassName('echo')[0].innerHTML
     expect(echo).toBe('This is an echo cave... cave... cave...')
